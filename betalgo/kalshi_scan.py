@@ -99,6 +99,7 @@ def grade():
     for r in rows:
         if r['result']:
             continue
+        time.sleep(0.5)
         with urllib.request.urlopen(f"{API}/{r['ticker']}", timeout=20) as x:
             m = json.load(x)['market']
         if m.get('result') in ('yes', 'no'):
